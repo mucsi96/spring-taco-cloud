@@ -13,16 +13,14 @@ import org.springframework.test.web.servlet.MockMvc;
 
 @WebMvcTest(HomeController.class)
 public class HomeControllerTests {
-	
+
 	@Autowired
 	private MockMvc mockMvc;
-	
+
 	@Test
 	void testHomePage() throws Exception {
-		this.mockMvc.perform(get("/"))
-			.andExpect(status().isOk())
-			.andExpect(view().name("home"))
-			.andExpect(content().string(containsString("Welcome to Taco Cloud")));
+		this.mockMvc.perform(get("/")).andExpect(status().isOk()).andExpect(view().name("home"))
+				.andExpect(content().string(containsString("Welcome to Taco Cloud")));
 	}
 
 }
